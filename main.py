@@ -77,17 +77,17 @@ def getUpdate():
     if celcius == -1 or celcius == 1:
         engine.say(f"W Warszawie jest {celcius} stopień celcjusza,"
                    f"temperatura minimalna: {round(weather['temperature_min'])}, temperatura maksymalna: {round(weather['temperature_max'])}"
-                   f"temperatura odczuwalna: {round(weather['temperature_feels_like'])}, dziśnienie: {round(weather['pressure'])} hektopaskali"
+                   f"temperatura odczuwalna: {round(weather['temperature_feels_like'])}, ciśnienie: {round(weather['pressure'])} hektopaskali"
                    )
     elif celcius < -1 and celcius >= -4 or celcius > 1 and celcius <= 4:
         engine.say(f"W Warszawie są {celcius} stopnie celcjusza, "
                    f"temperatura minimalna: {round(weather['temperature_min'])}, temperatura maksymalna: {round(weather['temperature_max'])}"
-                   f"temperatura odczuwalna: {round(weather['temperature_feels_like'])}, dziśnienie: {round(weather['pressure'])} hektopaskali"
+                   f"temperatura odczuwalna: {round(weather['temperature_feels_like'])}, ciśnienie: {round(weather['pressure'])} hektopaskali"
                    )
     else:
         engine.say(f"W Warszawie jest {celcius} stopni celcjusza,"
                    f"temperatura minimalna: {round(weather['temperature_min'])}, temperatura maksymalna: {round(weather['temperature_max'])}"
-                   f"temperatura odczuwalna: {round(weather['temperature_feels_like'])}, dziśnienie: {round(weather['pressure'])} hektopaskali"
+                   f"temperatura odczuwalna: {round(weather['temperature_feels_like'])}, ciśnienie: {round(weather['pressure'])} hektopaskali"
                    )
     engine.say(f"{weather_descriptions[weather['description']]}")
     engine.runAndWait()
