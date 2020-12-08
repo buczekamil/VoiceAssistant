@@ -37,7 +37,7 @@ def getDemand():
 
 
 def getUpdate():
-    url_warsaw = f'http://api.openweathermap.org/data/2.5/weather?q=Warsaw&units=metric&appid={api.weather_api}'
+    url_warsaw = f"http://api.openweathermap.org/data/2.5/weather?q=Warsaw&units=metric&appid={api.weather_api}"
     city = "Warsaw"
     Warsaw_weather = requests.get(
         url_warsaw.format(city)).json()
@@ -75,20 +75,15 @@ def getUpdate():
     engine.say(f"Wschód słońca: {sunrise.hour}:{sunrise.minute}")
     engine.say(f"Zachód słońca: {sunset.hour}:{sunset.minute}")
     if celcius == -1 or celcius == 1:
-        engine.say(f"W Warszawie jest {celcius} stopień celcjusza,"
-                   f"temperatura minimalna: {round(weather['temperature_min'])}, temperatura maksymalna: {round(weather['temperature_max'])}"
-                   f"temperatura odczuwalna: {round(weather['temperature_feels_like'])}, ciśnienie: {round(weather['pressure'])} hektopaskali"
-                   )
+        engine.say(f"W Warszawie jest {celcius} stopień celcjusza,")
     elif celcius < -1 and celcius >= -4 or celcius > 1 and celcius <= 4:
-        engine.say(f"W Warszawie są {celcius} stopnie celcjusza, "
-                   f"temperatura minimalna: {round(weather['temperature_min'])}, temperatura maksymalna: {round(weather['temperature_max'])}"
-                   f"temperatura odczuwalna: {round(weather['temperature_feels_like'])}, ciśnienie: {round(weather['pressure'])} hektopaskali"
-                   )
+        engine.say(f"W Warszawie są {celcius} stopnie celcjusza, ")
     else:
-        engine.say(f"W Warszawie jest {celcius} stopni celcjusza,"
-                   f"temperatura minimalna: {round(weather['temperature_min'])}, temperatura maksymalna: {round(weather['temperature_max'])}"
-                   f"temperatura odczuwalna: {round(weather['temperature_feels_like'])}, ciśnienie: {round(weather['pressure'])} hektopaskali"
-                   )
+        engine.say(f"W Warszawie jest {celcius} stopni celcjusza,")
+    engine.say(
+        f"temperatura minimalna: {round(weather['temperature_min'])}, temperatura maksymalna: {round(weather['temperature_max'])}"
+        f"temperatura odczuwalna: {round(weather['temperature_feels_like'])}, ciśnienie: {round(weather['pressure'])} hektopaskali"
+    )
     engine.say(f"{weather_descriptions[weather['description']]}")
     engine.runAndWait()
     engine.stop()
